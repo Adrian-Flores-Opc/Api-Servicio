@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Servicio.Android", "Api.Servicio.Android\Api.Servicio.Android.csproj", "{D8EEE7E8-2393-4AEA-B3B9-0CF3F4E37C51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Servicio.Entidades", "Api.Servicio.Entidades\Api.Servicio.Entidades.csproj", "{34450F38-7A9F-46E3-8B0B-757AFFFB9DCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Servicio.Comunes", "Api.Servicio.Comunes\Api.Servicio.Comunes.csproj", "{476C83AD-FA2B-4D39-8E67-70FD45E27D0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Servicio.Log", "Api.Servicio.Log\Api.Servicio.Log.csproj", "{AB413A2A-4106-443A-8759-B60885115A59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Servicio.Seguridad", "Api.Servicio.Seguridad\Api.Servicio.Seguridad.csproj", "{4F3A7260-E642-4371-A919-6DAC0B5BA46D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Servicio.Datos", "Api.Servicio.Datos\Api.Servicio.Datos.csproj", "{1F50CF72-DC9A-4577-BDF2-33059DA646D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Servicio.Negocio", "Api.Servicio.Negocio\Api.Servicio.Negocio.csproj", "{3BF36BA7-6D86-4972-9BFD-A1307D7029D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8EEE7E8-2393-4AEA-B3B9-0CF3F4E37C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8EEE7E8-2393-4AEA-B3B9-0CF3F4E37C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8EEE7E8-2393-4AEA-B3B9-0CF3F4E37C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8EEE7E8-2393-4AEA-B3B9-0CF3F4E37C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34450F38-7A9F-46E3-8B0B-757AFFFB9DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34450F38-7A9F-46E3-8B0B-757AFFFB9DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34450F38-7A9F-46E3-8B0B-757AFFFB9DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34450F38-7A9F-46E3-8B0B-757AFFFB9DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{476C83AD-FA2B-4D39-8E67-70FD45E27D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{476C83AD-FA2B-4D39-8E67-70FD45E27D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{476C83AD-FA2B-4D39-8E67-70FD45E27D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{476C83AD-FA2B-4D39-8E67-70FD45E27D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB413A2A-4106-443A-8759-B60885115A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB413A2A-4106-443A-8759-B60885115A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB413A2A-4106-443A-8759-B60885115A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB413A2A-4106-443A-8759-B60885115A59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3A7260-E642-4371-A919-6DAC0B5BA46D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3A7260-E642-4371-A919-6DAC0B5BA46D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3A7260-E642-4371-A919-6DAC0B5BA46D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3A7260-E642-4371-A919-6DAC0B5BA46D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F50CF72-DC9A-4577-BDF2-33059DA646D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F50CF72-DC9A-4577-BDF2-33059DA646D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F50CF72-DC9A-4577-BDF2-33059DA646D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F50CF72-DC9A-4577-BDF2-33059DA646D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF36BA7-6D86-4972-9BFD-A1307D7029D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF36BA7-6D86-4972-9BFD-A1307D7029D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF36BA7-6D86-4972-9BFD-A1307D7029D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF36BA7-6D86-4972-9BFD-A1307D7029D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE2E5C33-04CF-4818-BB0B-5310CCF8C449}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://btbtfs11:8080/tfs/canales%20presenciales
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Api.Servicio.Android\\Api.Servicio.Android.csproj
+		SccProjectName1 = Api.Servicio.Android
+		SccLocalPath1 = Api.Servicio.Android
+		SccProjectUniqueName2 = Api.Servicio.Comunes\\Api.Servicio.Comunes.csproj
+		SccProjectName2 = Api.Servicio.Comunes
+		SccLocalPath2 = Api.Servicio.Comunes
+		SccProjectUniqueName3 = Api.Servicio.Datos\\Api.Servicio.Datos.csproj
+		SccProjectName3 = Api.Servicio.Datos
+		SccLocalPath3 = Api.Servicio.Datos
+		SccProjectUniqueName4 = Api.Servicio.Entidades\\Api.Servicio.Entidades.csproj
+		SccProjectName4 = Api.Servicio.Entidades
+		SccLocalPath4 = Api.Servicio.Entidades
+		SccProjectUniqueName5 = Api.Servicio.Log\\Api.Servicio.Log.csproj
+		SccProjectName5 = Api.Servicio.Log
+		SccLocalPath5 = Api.Servicio.Log
+		SccProjectUniqueName6 = Api.Servicio.Negocio\\Api.Servicio.Negocio.csproj
+		SccProjectName6 = Api.Servicio.Negocio
+		SccLocalPath6 = Api.Servicio.Negocio
+		SccProjectUniqueName7 = Api.Servicio.Seguridad\\Api.Servicio.Seguridad.csproj
+		SccProjectName7 = Api.Servicio.Seguridad
+		SccLocalPath7 = Api.Servicio.Seguridad
+	EndGlobalSection
+EndGlobal
