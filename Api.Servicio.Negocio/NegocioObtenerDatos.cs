@@ -20,8 +20,6 @@ namespace Api.Servicio.Negocio
         {
             _conectorBD = new AccesoBaseDeDatos();
         }
-
-
         public GenericResponse MandarDatosUsuario(UsuarioRequest request, string _operation)
         {
             GenericResponse _response = new GenericResponse();
@@ -37,8 +35,8 @@ namespace Api.Servicio.Negocio
                 else
                 {
                     Informacion.LogInformacion(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ]. Ocurrio un error al guardar al cliente con email: " + request.correo_Electronico);
-                    _response.codigo = GerenteCodigo.GetCodigo("ERROR_FATAL");
-                    _response.mensaje = GerenteMensaje.GetMensaje("ERROR_FATAL");
+                    _response.codigo = 400 ;
+                    _response.mensaje = "No se pudo registrar la informacion del usuario en base de datos";
                     _response.exito = false;
                 }
             }
