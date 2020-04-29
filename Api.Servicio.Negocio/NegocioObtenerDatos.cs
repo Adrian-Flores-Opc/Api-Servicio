@@ -102,21 +102,21 @@ namespace Api.Servicio.Negocio
                         estado = password == passCanal ? true : false;
                         if (!estado)
                         {
-                            _respuesta.mensaje = "La contraseña es incorrecta";
+                            _respuesta.mensaje = "La contraseña proporcionada no es la correcta.";
                             _respuesta.codigo = 401;
                             _respuesta.exito = false;
                         }
                     }
                     else
                     {
-                        _respuesta.mensaje = "El canal no se encuentra habilitado para usar el siguiente metodo.";
+                        _respuesta.mensaje = "El canal " + canal + " no se encuentra habilitado para el uso del metodo.";
                         _respuesta.codigo = 401;
                         _respuesta.exito = false;
                     }
                 }
                 else if (datos.Rows.Count == 0)
                 {
-                    _respuesta.mensaje = "No se encuentra ningun dato sobre el canal";
+                    _respuesta.mensaje = "No se encuentra ninguna información sobre el canal";
                     _respuesta.codigo = 404;
                     _respuesta.exito = false;
                 }

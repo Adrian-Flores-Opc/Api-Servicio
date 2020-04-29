@@ -39,6 +39,7 @@ namespace Api.Servicio.Android.Controllers
                         return GerenteJson.SerializeObject(_resonse);
                     }
                     _resonse = _conectorNegocio.MandarDatosUsuario(request, _operation);
+                    Informacion.LogInformacion(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ] RESPONSE: " + GerenteJson.SerializeObject(_resonse));
                 }
                 else
                 {
@@ -77,6 +78,7 @@ namespace Api.Servicio.Android.Controllers
                         return GerenteJson.SerializeObject(_response);
                     }
                     _response = _conectorNegocio.ModificarDatosUsuario(request, _operation);
+                    Informacion.LogInformacion(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ] RESPONSE: " + GerenteJson.SerializeObject(_response));
                 }
                 else
                 {
