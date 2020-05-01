@@ -35,9 +35,7 @@ namespace Api.Servicio.Android.Controllers
                 {
                     _resonse = _conectorNegocio.VerificarCanal(request.Canal, request.PassCanal, _operation, ref estado);
                     if (!estado)
-                    {
                         return GerenteJson.SerializeObject(_resonse);
-                    }
                     _resonse = _conectorNegocio.MandarDatosUsuario(request, _operation);
                     Informacion.LogInformacion(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ] RESPONSE: " + GerenteJson.SerializeObject(_resonse));
                 }
@@ -56,7 +54,6 @@ namespace Api.Servicio.Android.Controllers
             }
             return JsonConvert.SerializeObject(_resonse);
         }
-
 
         [HttpPost]
         [ActionName("ModificarDataAndroid")]
@@ -94,6 +91,37 @@ namespace Api.Servicio.Android.Controllers
                 Informacion.LogError(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ]. Se genero un error en Modificar los datos.", ex);
             }
             return JsonConvert.SerializeObject(_response);
+        }
+
+        [HttpPost]
+        [ActionName("IniciarSecionAndroid")]
+        public string IniciarSecion(InicioUsuario request)
+        {
+            _operation = GerenteOperacion.GenerarOperacion();
+            GenericResponse _response = new GenericResponse();
+            bool estado = false;
+            try
+            {
+                Informacion.LogInformacion(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ] REQUEST: " + GerenteJson.SerializeObject(request));
+                if (ModelState.IsValid)
+                {
+                    _response = _conectorNegocio.VerificarCanal(request.Canal, request.PassCanal, _operation, ref estado);
+                    if (!estado)
+                        return GerenteJson.SerializeObject(_response);
+                    _response = _conectorNegocio.IniciarSecion(request, _operation);
+                }
+                else
+                {
+                    var errors = string.Join(" | ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+                    _response.mensaje = Convert.ToString(errors);
+                    return GerenteJson.SerializeObject(_response);
+                }
+            }
+            catch (Exception ex)
+            {
+                Informacion.LogError(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ]. Se genero un error inesperado. ",ex);
+            }
+            return GerenteJson.SerializeObject(_response);
         }
     }
 }

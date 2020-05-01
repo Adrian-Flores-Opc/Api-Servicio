@@ -25,6 +25,11 @@ namespace Api.Servicio.Negocio
             GenericResponse _response = new GenericResponse();
             try
             {
+                #region Encryptar contraseña de usuario 
+                string Password = String.Empty;
+                Encryptador.EncryptDecrypt(true, request.password, ref Password);
+                request.password = Password;
+                #endregion
                 if (_conectorBD.InsertDatosUsuario(request, _operation))
                 {
                     _response.codigo = GerenteCodigo.GetCodigo("OK");
@@ -106,6 +111,12 @@ namespace Api.Servicio.Negocio
                             _respuesta.codigo = 401;
                             _respuesta.exito = false;
                         }
+                        else
+                        {
+                            _respuesta.mensaje = GerenteMensaje.GetMensaje("OK");
+                            _respuesta.codigo = GerenteCodigo.GetCodigo("OK");
+                            _respuesta.exito = true;
+                        }
                     }
                     else
                     {
@@ -126,6 +137,47 @@ namespace Api.Servicio.Negocio
                 Informacion.LogError(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ]. Se genero un error inesperado. ",ex);
             }
             return _respuesta;
+        }
+
+        public GenericResponse IniciarSecion(InicioUsuario request, string _operation)
+        {
+            GenericResponse _response = new GenericResponse();
+            try
+            {
+                DataTable dmo = new DataTable();
+                dmo = _conectorBD.Get_Usuario(request, _operation);
+                if (dmo.Rows.Count == 1)
+                {
+                    foreach (DataRow item in dmo.Rows)
+                    {
+                        string pass = String.Empty;
+                        Encryptador.EncryptDecrypt(false, item.Field<string>("CONTRASEÑA"), ref pass);
+                        if (pass.Equals(request.contraseñaUsuario) && item.Field<string>("NOMBRE_USUARIO").Equals(request.nombreUsuario.Trim().ToUpper()))
+                        {
+                            _response.mensaje = GerenteMensaje.GetMensaje("OK");
+                            _response.codigo = GerenteCodigo.GetCodigo("OK");
+                            _response.exito = true;
+                        }
+                        else
+                        {
+                            _response.mensaje = "La contraseña o usuario son incorrectas";
+                            _response.codigo = 400;
+                            _response.exito = true;
+                        }
+                    }
+                }
+                else if (dmo.Rows.Count == 0)
+                {
+                    _response.mensaje = "CREAR CUENTA";
+                    _response.codigo = 401;
+                    _response.exito = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Informacion.LogError(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ]. Se genero un error inesperado. ",ex);
+            }
+            return _response;
         }
     }
 }

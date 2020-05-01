@@ -22,10 +22,10 @@ namespace Api.Servicio.Datos
             {
                 string nombreSp = "[api].[INSERT_DATOS_USUARIO]";
                 StoreProcedure sp = new StoreProcedure(nombreSp);
-                sp.AgregarParametro("@NOMBRE", data.nombre,Direccion.Input);
-                sp.AgregarParametro("@CORREO_ELECTRONICO", data.correo_Electronico, Direccion.Input);
+                sp.AgregarParametro("@NOMBRE", data.nombre.ToUpper(),Direccion.Input);
+                sp.AgregarParametro("@CORREO_ELECTRONICO", data.correo_Electronico.ToUpper(), Direccion.Input);
                 sp.AgregarParametro("@CELULAR", data.celular, Direccion.Input);
-                sp.AgregarParametro("@USER", data.usuario, Direccion.Input);
+                sp.AgregarParametro("@USER", data.usuario.ToUpper(), Direccion.Input);
                 sp.AgregarParametro("@PASSWORD", data.password, Direccion.Input);
                 sp.EjecutarStoreProcedure(strConexion_wpp);
                 if (sp.Error.Trim() != String.Empty)
@@ -42,7 +42,6 @@ namespace Api.Servicio.Datos
 
             return response;
         }
-
 
         public bool UpdateDatosUsuario(UpdateUsuarioRequest request, string _operation)
         {
@@ -89,6 +88,27 @@ namespace Api.Servicio.Datos
                 Informacion.LogError(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ]. Se genero un error inesperado en Base de Datos BD_DATOS", ex);
             }
             return data;
+        }
+
+        public DataTable Get_Usuario(InicioUsuario request, string _operation)
+        {
+            DataTable datos = new DataTable();
+            try
+            {
+                StoreProcedure sp = new StoreProcedure("[api].[GET_USUARIO_INICIO]");
+                sp.AgregarParametro("",request.nombreUsuario,Direccion.Input);
+                sp.AgregarParametro("", request.contraseñaUsuario, Direccion.Input);
+                datos = sp.RealizarConsulta(strConexion_wpp);
+                if (sp.Error != String.Empty)
+                {
+                    throw new Exception("Procedimiento Almacenado: [api].[GET_USUARIO_INICIO] - Descripcion: " +sp.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Informacion.LogError(LogManager.GetCurrentClassLogger(), " [ " + GerenteLog.GetObtenerMetodo() + " ] -- [ " + _operation + " ]. Se genero un error inesperado. ",ex);
+            }
+            return datos;
         }
     }
 }

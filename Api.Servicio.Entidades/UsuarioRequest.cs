@@ -21,5 +21,12 @@ namespace Api.Servicio.Entidades
         public string password { get; set; }
     }
 
+    public class InicioUsuario : GenericRequest
+    {
+        [Required(ErrorMessage = "campo {0} nulo o esta vacio")]
+        public string nombreUsuario { get; set; }
+        [Required(ErrorMessage = "campo {0} nulo o esta vacio")]
+        public string contraseñaUsuario { get; set; }
+    }
    
 }
